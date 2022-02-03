@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Lista de Compras</title>
+  </head>
+  <body>
+    <header class="title">
+      <h1>Lista de Compras</h1>
+      <hr />
+    </header>
+    <div class="purchaseRequisition">
+      <label for="productName">Produto</label>
+      <input class="productName" type="text" placeholder="O que comprar?" />
+
+      <label for="productQuantity">Quantidade</label>
+      <input
+        class="productQuantity"
+        type="number"
+        placeholder="Quantidade?"
+        min="1"
+      />
+
+      <label for="productValue">Valor do Produto</label>
+      <input class="productValue" type="number" placeholder="Valor?" min="0.01" />
+
+      <button id="order">Listar</button>
+    </div>
+
+    <hr />
+
+    <div class="boards">
+
+      <div class="board">
+        <div id="adiciona" class="dropzone">
+            <h3>Comprar</h3>
+            <!-- <div class="card" draggable="true">
+              <div class="status">produto</div>
+              <div class="content">preço</div>
+            </div> -->
+        </div>
+      </div>
+
+      <div class="board">
+        <div class="dropzone">
+            <h3>Comprando</h3>
+            <!-- <div class="card" draggable="true">
+              <div class="status">produto</div>
+              <div class="content">preço</div>
+            </div> -->
+        </div>
+      </div>
+
+      <div class="board">
+        <div class="dropzone">
+            <h3>Comprado</h3>
+            <!-- <div class="card" draggable="true">
+              <div class="status">produto</div>
+              <div class="content">preço</div>
+            </div> -->
+        </div>
+      </div>
+
+    </div>
+  </body>
+  <script type="module" src="script.js" defer></script>
+</html>
