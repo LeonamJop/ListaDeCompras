@@ -14,7 +14,7 @@ document.querySelector("#order").addEventListener("click", () => {
   productQuantityP.appendChild(productQuantity);
 
   const productValueP = document.createElement("p");
-  const productValue = document.createTextNode(`Valor da UN: R$ ${compra.quantidade}`);
+  const productValue = document.createTextNode(`Valor da UN: R$ ${compra.preco}`);
   productValueP.appendChild(productValue);
 
   const totalPurchaseAmountP = document.createElement("p");

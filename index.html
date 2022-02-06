@@ -5,39 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
     <title>Lista de Compras</title>
   </head>
   <body>
     <header class="title">
-      <h1>Lista de Compras</h1>
+      <h1>
+        <img src="assets/favicon-32x32.png" alt="iconList" /> 
+        Lista de Compras
+      </h1>
       <hr />
     </header>
-    <div class="purchaseRequisition">
-      <label for="productName">Produto</label>
-      <input class="productName" type="text" placeholder="O que comprar?" />
 
-      <label for="productQuantity">Quantidade</label>
-      <input
-        class="productQuantity"
-        type="number"
-        placeholder="Quantidade?"
-        min="1"
-      />
+    <div class="purchaseRequisitionMain">
+      <div class="purchaseRequisition">
+        <label for="productName">Produto</label>
+        <input class="productName" type="text" placeholder="O que comprar?" />
 
-      <label for="productValue">Valor do Produto</label>
-      <input class="productValue" type="number" placeholder="Valor?" min="0.01" />
+        <div class="quantity">
+          <label for="productQuantity">Quantidade: </label>
+          <input
+            class="productQuantity"
+            type="number"
+            placeholder="Quantidade?"
+            min="1"
+          />
+        </div>
 
-      <button id="order">Listar</button>
+        <div class="value">
+          <label for="productValue">Valor do Produto:</label>
+          <input
+            class="productValue"
+            type="number"
+            placeholder="Valor?"
+            min="0.01"
+          />
+        </div>
+
+        <button id="order">Listar</button>
+      </div>
     </div>
-
     <hr />
 
     <div class="boards">
-
       <div class="board">
         <div id="adiciona" class="dropzone">
-            <h3>Comprar</h3>
-            <!-- <div class="card" draggable="true">
+          <h3>Comprar</h3>
+          <hr />
+          <!-- <div class="card" draggable="true">
               <div class="status">produto</div>
               <div class="content">preço</div>
             </div> -->
@@ -46,8 +61,9 @@
 
       <div class="board">
         <div class="dropzone">
-            <h3>Comprando</h3>
-            <!-- <div class="card" draggable="true">
+          <h3>Comprando</h3>
+          <hr />
+          <!-- <div class="card" draggable="true">
               <div class="status">produto</div>
               <div class="content">preço</div>
             </div> -->
@@ -56,14 +72,14 @@
 
       <div class="board">
         <div class="dropzone">
-            <h3>Comprado</h3>
-            <!-- <div class="card" draggable="true">
+          <h3>Comprado</h3>
+          <hr />
+          <!-- <div class="card" draggable="true">
               <div class="status">produto</div>
               <div class="content">preço</div>
             </div> -->
         </div>
       </div>
-
     </div>
   </body>
   <script type="module" src="script.js" defer></script>
