@@ -42,6 +42,19 @@ body{
 
 }
 
+button{
+    background-color: #333;
+    color: #f8f8f8;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+button:hover{
+    cursor: pointer;
+}
+
 .boards{
     display: flex;
     justify-content: space-around;
@@ -71,7 +84,7 @@ body{
 
 .card{
     padding: 16px;
-    box-shadow: 0 2px 2px -1px #fd951fcc;
+    box-shadow: 0 2px 2px -1px #333;
     width: 250px;
     margin: 25px 0;
     border-radius: 4px;

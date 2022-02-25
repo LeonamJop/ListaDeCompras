@@ -7,8 +7,13 @@ document.querySelector("#order").addEventListener("click", () => {
   if(!compra.produto || !compra.quantidade || !compra.preco){
     alert("Preencha todos os dados antes de continuar!")
   }else{
+
+    const cardId = Number(Math.random()*10);
+
     const newBuy = document.createElement("div");
-    // const inputProductNameValue = document.querySelector(".productName").value;
+    newBuy.setAttribute("data-id", cardId);
+    newBuy.classList.add("card");
+
     const productNameP = document.createElement("p");
     const productName = document.createTextNode(`Produto: ${compra.produto}`);
     productNameP.appendChild(productName);
@@ -24,17 +29,33 @@ document.querySelector("#order").addEventListener("click", () => {
     const totalPurchaseAmountP = document.createElement("p");
     const totalPurchaseAmount = document.createTextNode(`Valor total: R$ ${compra.total.toFixed(2)}`);
     totalPurchaseAmountP.appendChild(totalPurchaseAmount);
-  
+
+    const buttonRemove = document.createElement('button');
+    const buttonRemoveText = document.createTextNode('Remover');
+    buttonRemove.appendChild(buttonRemoveText);
+    buttonRemove.setAttribute("data-id", cardId);
+
   
     newBuy.appendChild(productNameP);
     newBuy.appendChild(productQuantityP);
     newBuy.appendChild(productValueP);
     newBuy.appendChild(totalPurchaseAmountP);
-    
-    newBuy.classList.add("card");
+    newBuy.appendChild(buttonRemove);
+
+    /** Adicionar função de remover card */
+
+    buttonRemove.addEventListener('click', e => {
+
+      const buttonRemoveId = e.target.id;
+      console.log("buttonRemoveId",buttonRemoveId);
+
+      const cardRemoved = document.querySelector(`[data-id="${cardId}" ]`);
+      cardRemoved.remove();
+
+    })
+
+    /* Adicionando draggable nos cards */
     newBuy.setAttribute("draggable", "true");
-  
-    console.log(newBuy);
   
     adiciona.appendChild(newBuy);
   
@@ -102,3 +123,4 @@ document.querySelector("#order").addEventListener("click", () => {
     }
   }
 });
+
