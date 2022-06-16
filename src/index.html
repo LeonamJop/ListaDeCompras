@@ -16,10 +16,13 @@
       </h1>
       <hr />
     </header>
+    <div id="include">
+      <button id="addNewCard">Incluir</button>
+    </div>
 
-    <div class="purchaseRequisitionMain">
-      <div class="purchaseRequisition">
-        <label for="productName">Produto</label>
+    <div class="modalRequisitionContainer">
+      <div class="modalRequisition">
+        <label for="productName">Produto:</label>
         <input class="productName" type="text" placeholder="O que comprar?" />
 
         <div class="quantity">
@@ -42,10 +45,9 @@
           />
         </div>
 
-        <button id="order">Listar</button>
+        <button id="order">Cocluido</button>
       </div>
     </div>
-    <hr />
 
     <div class="boards">
       <div class="board">
@@ -69,6 +71,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="script.js" defer></script>
   </body>
-  <script type="module" src="script.js" defer></script>
 </html>

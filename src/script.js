@@ -1,5 +1,20 @@
 import { Card } from "./Card.js";
 
+const modal = document.querySelector('.modalRequisitionContainer');
+
+document.getElementById("addNewCard").addEventListener("click", () => {
+  modal.classList.add('active');
+
+  modal.onclick = e => {
+    if (e.target.className.indexOf('modalRequisitionContainer') !== -1) {
+      modal.classList.remove('active');
+      document.querySelector(".productName").value = '';
+      document.querySelector(".productQuantity").value = '';
+      document.querySelector(".productValue").value = '';
+    }
+  }
+});
+
 document.querySelector("#order").addEventListener("click", () => {
   
   const compra = new Card();
@@ -14,41 +29,24 @@ document.querySelector("#order").addEventListener("click", () => {
     newBuy.setAttribute("data-id", cardId);
     newBuy.classList.add("card");
 
-    const productNameP = document.createElement("p");
-    const productName = document.createTextNode(`Produto: ${compra.produto}`);
-    productNameP.appendChild(productName);
-  
-    const productQuantityP = document.createElement("p");
-    const productQuantity = document.createTextNode(`Quantidade: ${compra.quantidade}`);
-    productQuantityP.appendChild(productQuantity);
-  
-    const productValueP = document.createElement("p");
-    const productValue = document.createTextNode(`Valor da UN: R$ ${compra.preco}`);
-    productValueP.appendChild(productValue);
-  
-    const totalPurchaseAmountP = document.createElement("p");
-    const totalPurchaseAmount = document.createTextNode(`Valor total: R$ ${compra.total.toFixed(2)}`);
-    totalPurchaseAmountP.appendChild(totalPurchaseAmount);
+    newBuy.innerHTML = `
+      <p>Produto: ${compra.produto}</p>
+      <p>Quantidade: ${compra.quantidade}</p>
+      <p>Valor da UN: R$ ${compra.preco}</p>
+      <p>Valor total: R$ ${compra.total.toFixed(2)}</p>
+    `
+    adiciona.appendChild(newBuy);
 
-    const buttonRemove = document.createElement('button');
+    modal.classList.remove('active');
+
+    const buttonRemoveCard = document.createElement('button');
     const buttonRemoveText = document.createTextNode('Remover');
-    buttonRemove.appendChild(buttonRemoveText);
-    buttonRemove.setAttribute("data-id", cardId);
+    buttonRemoveCard.appendChild(buttonRemoveText);
+    buttonRemoveCard.setAttribute("data-id", cardId);
 
-  
-    newBuy.appendChild(productNameP);
-    newBuy.appendChild(productQuantityP);
-    newBuy.appendChild(productValueP);
-    newBuy.appendChild(totalPurchaseAmountP);
-    newBuy.appendChild(buttonRemove);
+    newBuy.appendChild(buttonRemoveCard);
 
-    /** Adicionar função de remover card */
-
-    buttonRemove.addEventListener('click', e => {
-
-      const buttonRemoveId = e.target.id;
-      console.log("buttonRemoveId",buttonRemoveId);
-
+    buttonRemoveCard.addEventListener('click', e => {
       const cardRemoved = document.querySelector(`[data-id="${cardId}" ]`);
       cardRemoved.remove();
 
@@ -56,9 +54,7 @@ document.querySelector("#order").addEventListener("click", () => {
 
     /* Adicionando draggable nos cards */
     newBuy.setAttribute("draggable", "true");
-  
-    adiciona.appendChild(newBuy);
-  
+
     document.querySelector(".productName").value = null;
     document.querySelector(".productQuantity").value = 0;
     document.querySelector(".productValue").value = 0;
@@ -73,21 +69,15 @@ document.querySelector("#order").addEventListener("click", () => {
     });
   
     function dragstart() {
-      //   console.log('Card: start dragging');
       dropzones.forEach((dropzone) => dropzone.classList.add("highlight"));
-  
       this.classList.add("is-dragging");
     }
   
     function drag() {
-      //   console.log('Card: Is dragging');
     }
   
     function dragend() {
-      //   console.log('Card: Stop drag!');
-  
       dropzones.forEach((dropzone) => dropzone.classList.remove("highlight"));
-  
       this.classList.remove("is-dragging");
     }
   
@@ -99,28 +89,20 @@ document.querySelector("#order").addEventListener("click", () => {
     });
   
     function dragenter() {
-      // console.log('DropZone: Enter in zone!');
     }
   
     function dragover() {
-      //   console.log('DropZone: Is over');
-  
       this.classList.add("over");
-  
       const cardBeingDragged = document.querySelector(".is-dragging");
-  
       this.appendChild(cardBeingDragged);
     }
   
     function dragleave() {
-      //   console.log('DropZone: Leave!');
       this.classList.remove("over");
     }
   
     function drop() {
-      //   console.log('DropZone: Dropped!');
       this.classList.remove("over");
     }
   }
 });
-

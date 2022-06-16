@@ -7,13 +7,20 @@ body{
     text-align: center;
 }
 
-.purchaseRequisitionMain{
-    display: flex;
-    justify-content: center;
+.modalRequisitionContainer{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
     align-items: center;
+    justify-content: center;
 }
 
-.purchaseRequisition{
+.modalRequisition{
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -24,22 +31,41 @@ body{
     background-color: #141316;
 }
 
+.active{
+    display: flex;
+}
+
+.active .modalRequisition{
+    animation: modalRequisition .4s;
+}
+
+#include{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#addNewCard{
+    width: 75px;
+    height: 50px;
+    font-size: 20px;
+}
+
 .quantity{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 5px;
 }
 
 .value{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 5px;
 }
 
 #order{
     font-size: 16px;
     font-weight: bold;
-
 }
 
 button{
@@ -48,7 +74,6 @@ button{
     border: none;
     border-radius: 5px;
     padding: 5px;
-
 }
 
 button:hover{
